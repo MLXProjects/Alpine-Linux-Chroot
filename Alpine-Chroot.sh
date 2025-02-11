@@ -31,8 +31,7 @@ CHROOT=$ARCH-alpine-newest
 VERSION=latest-stable
 APK_TOOL=apk-tools-static-2.14.6-r2.apk
 
-if [ -d $CHROOT ]
-then
+if [ -d $CHROOT ] && [ ! -z "$(ls -A '$CHROOT')" ] ; then
     echo "$CHROOT already exists."
     exit 0
 else
